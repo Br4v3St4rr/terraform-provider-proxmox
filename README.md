@@ -40,7 +40,6 @@ For example (using [delve](https://github.com/go-delve/delve) as Debugger):
 ```bash
 dlv exec --headless ./terraform-provider-my-provider -- --debug
 ```
-
 For more information about debugging a provider please
 see: [Debugger-Based Debugging](https://www.terraform.io/docs/extend/debugging.html#debugger-based-debugging)
 
