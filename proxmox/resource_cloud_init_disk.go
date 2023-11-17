@@ -79,7 +79,7 @@ func resourceCloudInitDisk() *schema.Resource {
 	}
 }
 
-func createCloudInitISO(metaData, userData, vendorData, unattendXml, networkConfig string) (io.Reader, string, error) {
+func createCloudInitISO(metaData, userData, vendorData, networkConfig, unattendXml string) (io.Reader, string, error) {
 	isoWriter, err := iso9660.NewWriter()
 	if err != nil {
 		return nil, "", err
@@ -137,7 +137,7 @@ func resourceCloudInitDiskCreate(ctx context.Context, d *schema.ResourceData, m 
 	pconf := m.(*providerConfiguration)
 	client := pconf.Client
 
-	r, sum, err := createCloudInitISO(d.Get("meta_data").(string), d.Get("user_data").(string), d.Get("unattend_xml").(string), d.Get("vendor_data").(string), d.Get("network_config").(string))
+	r, sum, err := createCloudInitISO(d.Get("meta_data").(string), d.Get("user_data").(string), d.Get("vendor_data").(string), d.Get("network_config").(string), d.Get("unattend_xml").(string))
 	if err != nil {
 		return diag.FromErr(err)
 	}
