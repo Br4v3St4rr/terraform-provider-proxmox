@@ -35,4 +35,4 @@ jobs:
           args: release --clean
         env:
           GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
-          GITHUB_TOKEN: ${{ secrets.GTHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GTIHUB_TOKEN }}
