@@ -1064,6 +1064,7 @@ func resourceVmQemuCreate(ctx context.Context, d *schema.ResourceData, meta inte
 			// proxmox needs so we can correctly update the existing disks (post-clone)
 			// instead of accidentially causing the existing disk to be detached.
 			// see https://github.com/Telmate/terraform-provider-proxmox/issues/239
+			
 			for slot, disk := range config_post_clone.QemuDisks {
 				if config.QemuDisks[slot]["slot"].(int) != disk["slot"].(int) ||
 						config.QemuDisks[slot]["type"].(string) != disk["type"].(string) {
