@@ -1066,31 +1066,6 @@ func resourceVmQemuCreate(ctx context.Context, d *schema.ResourceData, meta inte
 			// see https://github.com/Telmate/terraform-provider-proxmox/issues/239
 			
 			for slot, disk := range config_post_clone.QemuDisks {
-				if config.QemuDisks[slot]["slot"].(int) != disk["slot"].(int) ||
-						config.QemuDisks[slot]["type"].(string) != disk["type"].(string) {
-						// volume:  Users:5011/vm-5011-disk-0.raw
-						// file:    5011/vm-5011-disk-0.raw
-						// storage: Users
-						if config.QemuDisks[slot]["file"] == "" {
-								if config.QemuDisks[slot]["volume"] == "" {
-										return diag.FromErr(fmt.Errorf("the '%v%v' disk is not present in the cloned template, you must specify a 'file' name "+
-												"or 'volume' name or both", config.QemuDisks[slot]["type"], config.QemuDisks[slot]["slot"]))
-								} else {
-										sf := strings.Split(config.QemuDisks[slot]["volume"].(string), ":")
-										if len(sf) < 2 {
-												return diag.FromErr(fmt.Errorf("the '%v%v' disk is not present in the cloned template, you must specify a 'file' name "+
-														"or 'volume' name or both", config.QemuDisks[slot]["type"], config.QemuDisks[slot]["slot"]))
-										}
-										config.QemuDisks[slot]["file"] = sf[1]
-								}
-						} else {
-								if config.QemuDisks[slot]["volume"] == "" {
-										config.QemuDisks[slot]["volume"] = config.QemuDisks[slot]["storage"].(string) + ":" +
-												config.QemuDisks[slot]["file"].(string)
-								}
-						}
-						continue
-				}
 				// only update the desired configuration if it was not set by the user
 				// we do not want to overwrite the desired config with the results from
 				// proxmox if the user indicates they wish a particular file or volume config
@@ -1100,7 +1075,7 @@ func resourceVmQemuCreate(ctx context.Context, d *schema.ResourceData, meta inte
 				if config.QemuDisks[slot]["volume"] == "" {
 						config.QemuDisks[slot]["volume"] = disk["volume"]
 				}
-		}
+			}
 
 			err = config.UpdateConfig(vmr, client)
 			if err != nil {
