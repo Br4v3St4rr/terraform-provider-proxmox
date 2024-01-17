@@ -11,7 +11,7 @@ require (
 )
 
 require (
-	github.com/br4v3st4rr/proxmox-api-go v0.0.0-20231120162358-77fc4d39158f // indirect
+	github.com/br4v3st4rr/proxmox-api-go v0.0.0-20231122124919-d375e5bd055e // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/spf13/cobra v1.7.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect

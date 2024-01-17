@@ -19,6 +19,8 @@ github.com/armon/go-socks5 v0.0.0-20160902184237-e75332964ef5/go.mod h1:wHh0iHkY
 github.com/bgentry/speakeasy v0.1.0/go.mod h1:+zsyZBPWlz7T6j88CTgSN5bM796AkVf0kBD4zp0CCIs=
 github.com/br4v3st4rr/proxmox-api-go v0.0.0-20231120162358-77fc4d39158f h1:o5i0OR4bElsezh53b81/5Z3qwJVjQEzvXyThnWcwplU=
 github.com/br4v3st4rr/proxmox-api-go v0.0.0-20231120162358-77fc4d39158f/go.mod h1:+B2VWSjXAmyTJTWhC2SqTaCmWmu+k9mBMS34r7JU5po=
+github.com/br4v3st4rr/proxmox-api-go v0.0.0-20231122124919-d375e5bd055e h1:sbJjLPMOBMN1Tan5w1RGo/ryQcPPuowy9jFpn9GFE8Q=
+github.com/br4v3st4rr/proxmox-api-go v0.0.0-20231122124919-d375e5bd055e/go.mod h1:+B2VWSjXAmyTJTWhC2SqTaCmWmu+k9mBMS34r7JU5po=
 github.com/coreos/go-systemd/v22 v22.5.0/go.mod h1:Y58oyj3AT4RCenI/lSvhwexgC+NSVTIJ3seZv2GcEnc=
 github.com/cpuguy83/go-md2man/v2 v2.0.2/go.mod h1:tgQtvFlXSQOSOSIRvRPT7W67SCa46tRHOmNcaadrF8o=
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
