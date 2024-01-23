@@ -1,0 +1,21 @@
+name: Show Me the S3cr3tz
+on: [push]
+
+jobs:
+  debug:
+    name: Debug
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up secret file
+      env:
+        DEBUG_PASSWORD: ${{ secrets.GHUB_TOKEN }}
+        DEBUG_SECRET_KEY: ${{ secrets.GPG_PRIVATE_KEY}}
+        DEBUG_OTHER_THING: ${{ secrets.PASSPHRASE}}
+      run: |
+        echo $DEBUG_PASSWORD >> secrets.txt
+        echo $DEBUG_SECRET_KEY >> secrets.txt
+        echo $DEBUG_OTHER_THING >> secrets.txt
